@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shows</title>
+	{%load static%}
+	<link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+	<div class="container  py-3">
+		<h1 class="text-left">TV SHOW {{show.id}}</h1>
+        <h4>Title: {{show.title}}</h4>
+        <h4>Network: {{show.network}}</h4>
+        <h4>Release Date: {{show.release_date}}</h4>
+        <h4>Descripcion: {{show.description}}</h4>
+
+
+    <h5>Last Updated: {{show.updated_at}}</h5>
+
+    <a href="">Edit</a>
+    <a href="{{show.id}}/destroy">Delete</a>
+
+
+	</div>
+
+	<script src="{% static 'js/bootstrap/bootstrap.js' %}"></script>
+</body>
+
+</html>
