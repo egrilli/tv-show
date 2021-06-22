@@ -17,7 +17,7 @@
 		<h1 class="text-left">Edit Shows {{show.id}} </h1>
 
 
-		<form action="/shows/edit" method="POST">
+		<form action="/shows/{{show.id}}/edit" method="POST">
 			{% csrf_token %}
 			<div class="mb-3">
 				<label class="form-label">Title</label>

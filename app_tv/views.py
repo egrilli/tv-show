@@ -24,7 +24,7 @@ def create(request):
         release_date=request.POST['release_date'],
         description=request.POST['description'],
     )
-    return redirect ("/shows")
+    return redirect ("/shows/"+str(new_show.id))
 
 def read(request,id):
     show=Show.objects.get(id=id)
@@ -35,20 +35,19 @@ def read(request,id):
 
 def edit(request,id):
     show=Show.objects.get(id=id)
-    context={
-        "show":show
-    }
-    return render(request,"edit.html",context)
+    if request.method=="GET":
+        context={
+            "show":show
+        }
+        return render(request,"edit.html",context)
 
-def editar(request,id):
-    show=Show.objects.get(id=id)
-    show.title=request.POST['title']
-    show.network=request.POST['network']
-    show.release_date=request.POST['release_date']
-    show.description=request.POST['description']
-    show.save()
-    return redirect(request,"shows/<id>/edit")
-
+    if request.method=="POST":
+        show.title=request.POST['title']
+        show.network=request.POST['network']
+        show.release_date=request.POST['release_date']
+        show.description=request.POST['description']
+        show.save()
+        return redirect("/shows")
 
 
 
