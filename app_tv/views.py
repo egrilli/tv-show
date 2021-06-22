@@ -4,7 +4,7 @@ from app_tv.models import *
 
 
 def index(request):
-    return render(request,"index.html")
+    return redirect("/shows")
 
 
 def show(request):
@@ -47,7 +47,7 @@ def edit(request,id):
         show.release_date=request.POST['release_date']
         show.description=request.POST['description']
         show.save()
-        return redirect("/shows")
+        return redirect("/shows/"+str(show.id))
 
 
 
