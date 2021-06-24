@@ -14,28 +14,36 @@
 <body>
 
 	<div class="container  py-3">
-		<h1 class="text-left">New Shows</h1>
+		<div class="row">
+			<div class="col-10">
+				<h1 class="text-left">New Shows </h1>
+			</div>
+			<div class="col-2">
+				<a href="/shows"><button class="btn btn-danger my-4"> Volver a Show</button></a>
+			</div>
+		</div>
+
 
 
 		<form action="/shows/create" method="POST">
 			{% csrf_token %}
 			<div class="mb-3">
-				<label  class="form-label">Title</label>
+				<label class="form-label">Title</label>
 				<input type="text" class="form-control" name="title">
 			</div>
 
 			<div class="mb-3">
-				<label  class="form-label">Network</label>
+				<label class="form-label">Network</label>
 				<input type="text" class="form-control" name="network">
 			</div>
 			<div class="mb-3">
 				<label class="form-label">Año Lanzamiento</label>
 				<input type="date" class="form-control" name="release_date">
-			  </div>
-			  <div class="mb-3">
-				<label  class="form-label">Descripcion</label>
-				<textarea class="form-control"  rows="5" name="description"></textarea>
-			  </div>
+			</div>
+			<div class="mb-3">
+				<label class="form-label">Descripcion</label>
+				<textarea class="form-control" rows="5" name="description"></textarea>
+			</div>
 			<button type="submit" class="btn btn-primary">Agregar</button>
 		</form>
 

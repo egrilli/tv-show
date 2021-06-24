@@ -14,7 +14,14 @@
 <body>
 
 	<div class="container  py-3">
-		<h1 class="text-left">Edit Shows {{show.id}} </h1>
+		<div class="row">
+			<div class="col-10">
+			<h1 class="text-left">Edit Shows {{show.id}} </h1>
+		</div>
+		<div class="col-2">
+			<a href="/shows"><button class="btn btn-danger my-4"> Volver a Show</button></a>
+		</div>
+	</div>
 
 
 		<form action="/shows/{{show.id}}/edit" method="POST">
@@ -38,7 +45,7 @@
 			</div>
 			<button type="submit" class="btn btn-primary">Editar</button>
 			<br>
-			<a href="/shows/{{show.id}}"><button class="btn btn-primary my-4"> Go to show</button></a>
+			<a href="/shows/{{show.id}}"><button class="btn btn-primary my-4"> Go to description</button></a>
 		</form>
 
 	</div>

@@ -14,18 +14,28 @@
 <body>
 
 	<div class="container  py-3">
-		<h1 class="text-left">TV SHOW {{show.id}}</h1>
-        <h4>Title: {{show.title}}</h4>
-        <h4>Network: {{show.network}}</h4>
-        <h4>Release Date: {{show.release_date}}</h4>
-        <h4>Descripcion: {{show.description}}</h4>
+
+		<div class="row">
+			<div class="col-10">
+				<h1 class="text-left">TV SHOW {{show.id}}</h1>
+			</div>
+			<div class="col-2">
+				<a href="/shows"><button class="btn btn-danger my-4"> Volver a Show</button></a>
+			</div>
+		</div>
 
 
-    <h5>Last Updated: {{show.updated_at}}</h5>
+		<h4>Title: {{show.title}}</h4>
+		<h4>Network: {{show.network}}</h4>
+		<h4>Release Date: {{show.release_date}}</h4>
+		<h4>Descripcion: {{show.description}}</h4>
 
-	
-    <a href="{{show.id}}/edit"><button type="button" class="btn btn-dark">Edit</button></a>
-    <a href="{{show.id}}/destroy"><button type="button" class="btn btn-dark">Delete</button></a>
+
+		<h5>Last Updated: {{show.updated_at}}</h5>
+
+
+		<a href="{{show.id}}/edit"><button type="button" class="btn btn-dark">Edit</button></a>
+		<a href="{{show.id}}/destroy"><button type="button" class="btn btn-dark">Delete</button></a>
 
 
 	</div>
