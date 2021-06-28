@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse,redirect
 from django.http import JsonResponse
 from app_tv.models import *
+from django.contrib import messages
 
 
 def index(request):
@@ -18,6 +19,26 @@ def new(request):
     return render(request,"create.html")
 
 def create(request):
+
+    errors= Show.objects.basic_validator(request.POST)
+
+    if len(errors)>0:
+        for k, v in errors.items():
+            messages.error(request,v)
+        
+        request.session['show_title']=request.POST['title']
+        request.session['show_network']=request.POST['network']
+        request.session['show_release_date']=request.POST['release_date']
+        request.session['show_description']=request.POST['description']
+        
+        return redirect("/shows/new")
+
+    else:
+        request.session['show_title']=""
+        request.session['show_network']=""
+        request.session['show_release_date']=""
+        request.session['show_description']=""
+
     new_show=Show.objects.create(
         title=request.POST['title'],
         network=request.POST['network'],
