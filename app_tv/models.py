@@ -4,11 +4,11 @@ class ShowManager(models.Manager):
     def basic_validator(self,post_data):
         errors = {}
 
-        if len(post_data['title'])<7:
-            errors['title']="El titulo tiene que ser mayor a 7 caracteres"
+        if len(post_data['title'])<2:
+            errors['title']="El titulo tiene que ser mayor a 2 caracteres"
 
-        if len(post_data['network'])<4:
-            errors['network']="La televisora tiene que ser mayor a 4 caracteres"
+        if len(post_data['network'])<3:
+            errors['network']="La televisora tiene que ser mayor a 3 caracteres"
 
         if len(post_data['description'])<10:
             errors['description']="La descripcion tiene que ser mayor a 10 caracteres"

@@ -1,56 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% block titulo %} Editar{% endblock%}
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Shows</title>
-	{%load static%}
-	<link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
 
-<body>
+{% block contenido %}
 
-	<div class="container  py-3">
-		<div class="row">
-			<div class="col-10">
-				<h1 class="text-left">Edit Shows {{show.id}} </h1>
-			</div>
-			<div class="col-2">
-				<a href="/shows"><button class="btn btn-danger my-4"> Volver a Show</button></a>
-			</div>
+<div class="container  py-3">
+	<div class="row">
+		<div class="col-10">
+			<h1 class="text-left">Edit Shows {{show.id}} </h1>
 		</div>
-
-
-		<form action="/shows/{{show.id}}/edit" method="POST">
-			{% csrf_token %}
-			<div class="mb-3">
-				<label class="form-label">Title</label>
-				<input type="text" class="form-control" name="title" value="{{show.title}}">
-			</div>
-
-			<div class="mb-3">
-				<label class="form-label">Network</label>
-				<input type="text" class="form-control" name="network" value="{{show.network}}">
-			</div>
-			<div class="mb-3">
-				<label class="form-label">Año Lanzamiento</label>
-				<input type="date" class="form-control" name="release_date" value="{{show.release_date|date:'Y-m-d' }}">
-			</div>
-			<div class="mb-3">
-				<label class="form-label">Descripcion</label>
-				<textarea class="form-control" rows="5" name="description">{{show.description}}</textarea>
-			</div>
-			<button type="submit" class="btn btn-primary">Editar</button>
-			<br>
-			<a href="/shows/{{show.id}}"><button class="btn btn-primary my-4"> Go to description</button></a>
-		</form>
-
+		<div class="col-2">
+			<a href="/shows"><button class="btn btn-danger my-4"> Volver a Show</button></a>
+		</div>
 	</div>
 
-	<script src="{% static 'js/bootstrap/bootstrap.js' %}"></script>
-</body>
 
-</html>
+	<form action="/shows/{{show.id}}/edit" method="POST">
+		{% csrf_token %}
+		<div class="mb-3">
+			<label class="form-label">Title</label>
+			<input type="text" class="form-control" name="title" value="{{show.title}}">
+		</div>
+
+		<div class="mb-3">
+			<label class="form-label">Network</label>
+			<input type="text" class="form-control" name="network" value="{{show.network}}">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Año Lanzamiento</label>
+			<input type="date" class="form-control" name="release_date" value="{{show.release_date|date:'Y-m-d' }}">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Descripcion</label>
+			<textarea class="form-control" rows="5" name="description">{{show.description}}</textarea>
+		</div>
+		<button type="submit" class="btn btn-primary">Editar</button>
+		<br>
+		<a href="/shows/{{show.id}}"><button class="btn btn-primary my-4"> Go to description</button></a>
+	</form>
+
+</div>
+
+{% endblock %}
