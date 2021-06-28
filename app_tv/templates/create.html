@@ -1,27 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% block titulo %} Editar{% endblock%}
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Shows</title>
-	{%load static%}
-	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
 
-<body>
-
+{% block contenido %}
 	<div class="container  py-3">
 
-		{% if messages %}
-		<ul class="messages">    
-    		{% for message in messages %}    
-        		<li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
-    		{% endfor %}
-		</ul>
-		{% endif %}
+
 
 		<div class="row">
 			<div class="col-10">
@@ -58,8 +42,4 @@
 
 
 	</div>
-
-	<script src="{% static 'js/bootstrap.js' %}"></script>
-</body>
-
-</html>
+{% endblock %}
